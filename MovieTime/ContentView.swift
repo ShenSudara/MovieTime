@@ -3,7 +3,7 @@
 //  MovieTime
 //
 //  Created by Ashen Sudaraka on 2026-01-22.
-// 01:39:50
+//  02:19:18
 
 import SwiftUI
 
@@ -21,11 +21,6 @@ struct ContentView: View {
             }
             Tab(Constants.downloadsString, systemImage: Constants.downloadsIconString){
                 Text(Constants.downloadsString)
-            }
-        }.onAppear{
-            if let config = APIConfig.shared{
-                print(config.tmdbBaseURL)
-                print(config.tmdbAPIKey)
             }
         }
     }

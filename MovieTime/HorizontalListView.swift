@@ -10,6 +10,7 @@ import SwiftUI
 struct HorizontalListView: View {
     let header : String
     var titles: [Title]
+    let onSelect: (Title) -> Void
     
     var body: some View {
         VStack(alignment: .leading){
@@ -24,7 +25,11 @@ struct HorizontalListView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         } placeholder: {
                             ProgressView()
-                        }.frame(width: 128, height: 200)
+                        }
+                        .frame(width: 128, height: 200)
+                        .onTapGesture{
+                            onSelect(title)
+                        }
                     }
                 }
             }
@@ -35,5 +40,6 @@ struct HorizontalListView: View {
 }
 
 #Preview {
-    HorizontalListView(header: Constants.trendingMovieString, titles: Title.previewTitles)
+    HorizontalListView(header: Constants.trendingMovieString, titles: Title.previewTitles){title in
+    }
 }
